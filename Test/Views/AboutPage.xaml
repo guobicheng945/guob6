@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Test.Views.AboutPage"
+             xmlns:vm="clr-namespace:Test.ViewModels"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="SetUp.png" Clicked="SetupItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--<StackLayout BackgroundColor="Aqua" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">-->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center">
+            <ContentView Padding="0,0,0,0" VerticalOptions="FillAndExpand">
+                <Image Source="tab_feed.png" VerticalOptions="Start" HeightRequest="50" />
+            </ContentView>
+            <ContentView>
+                <StackLayout>
+                    <!--User nickname-->
+                    <Label VerticalOptions="Center" Text="{Binding Name}" FontSize="Title"/>
+                    <StackLayout Orientation="Horizontal">
+                         <!--User balance-->
+                        <Label Text="Balance" VerticalOptions="Center"/>
+                    <Label Text="{Binding Balance}"/>
+                        <Label Text="Freeze"/>
+                    <Label Text="{Binding Freeze}"/>
+                        <Label Text="Integral"/>
+                    <Label Text="{Binding integral}"/>
+                    </StackLayout>
+                </StackLayout>
+            </ContentView>
+        </StackLayout>
+        <Grid Grid.Row="1">
+            <StackLayout Orientation="Vertical">
+                <Button Text="card bag"/>
+                <Button Text="mission center"/>
+                <Button Text="invite friends"/>
+                <Button Text="about us"/>
+                <Button Text="orders"/>
+                <Button Text="qestion feedback"/>
+            </StackLayout>
+        </Grid>
+    </Grid>
+
+
+</ContentPage>
